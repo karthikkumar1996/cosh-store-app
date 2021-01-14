@@ -8,16 +8,16 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          COSH Store Opening Soon !!!
         </p>
+        <p>Contact: &nbsp;
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto:anjalisingh81194@gmail.com"
         >
-          Learn React
+          Anjali Singh
         </a>
+        </p>
       </header>
     </div>
   );
