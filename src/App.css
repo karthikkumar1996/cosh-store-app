@@ -2,3 +2,22 @@
   height: 100%;
   width: 100%;
 }
+
+.App {
+  background: var(--theme-page-background);
+  color: var(--theme-page-text);
+  background-size: 400% 400% ;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
