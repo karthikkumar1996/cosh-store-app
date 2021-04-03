@@ -18,5 +18,11 @@ cache:
 install:
   - npm install
   - npm run build #use your build script
-after_success:
-  - surge --project ./build --domain cosh.surge.sh
+deploy:
+  provider: s3
+  access_key_id: "AKIAIRLJ4HC5L2ROYCMA"
+  secret_access_key: "YyMxMUYqRmdajiPYu0acGAK9uuG6G4pJ2/J+g1yX"
+  bucket: "cosh-store-app"
+  skip_cleanup: true
+  on:
+    all_branches: true
