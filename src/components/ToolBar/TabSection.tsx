@@ -47,7 +47,7 @@ export const TabSection = () => {
           dispatch({ type: "GALLERY_PAGE" });
         }}
       >
-        Art Work
+        Art Gallery
       </Button>
       <Button
         color="primary"

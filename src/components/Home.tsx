@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CarouselTool from "./Display/Carousel";
+import CarouselTool from "./Gallery/Carousel";
 
 import { AppState } from "../redux/store";
-import { TabSection } from "./Display/TabSection";
+import { TabSection } from "./ToolBar/TabSection";
 import { SECTIONS } from "../redux/section/types";
 import ToolBar from "./ToolBar/ToolBar";
 
 import "./Home.scss";
+import { AboutArtist } from "./About/AboutArtist";
 
 const Home: React.FunctionComponent = () => {
   const sectionStore = useSelector((store: AppState) => store.section);
@@ -20,6 +21,8 @@ const Home: React.FunctionComponent = () => {
         <div className="carousel-holder">
           <CarouselTool />
         </div>
+      ) : sectionStore.currentActivePage === SECTIONS.ABOUT_PAGE ? (
+        <AboutArtist />
       ) : null}
     </div>
   );
