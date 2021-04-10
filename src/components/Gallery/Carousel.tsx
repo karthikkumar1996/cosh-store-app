@@ -7,69 +7,81 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import "./Carousel.scss";
 import PurchaseForm from "./PurchaseForm";
+import Paper from "@material-ui/core/Paper";
 
 class CarouselTool extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
       purchaseFormOpen: false,
+      isImageLoaded: false,
     };
   }
   render() {
     return (
       <>
-        <Carousel
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={false}
-          autoPlay={false}
-          infiniteLoop={true}
+        <Paper
+          elevation={20}
+          variant="elevation"
+          className={this.state.isImageLoaded ? "show" : "hide"}
         >
-          <div>
-            <img src="assets/images/1.jpg" alt="img not available" />
-            <Button
-              className="legend"
-              variant="contained"
-              color="secondary"
-              startIcon={<ShoppingCartIcon />}
-              onClick={() => this.setState({ purchaseFormOpen: true })}
-            >
-              Buy Now
-            </Button>
-          </div>
-          <div>
-            <img src="assets/images/2.jpg" alt="img not available" />
-            <Button
-              className="legend"
-              variant="contained"
-              color="secondary"
-              startIcon={<ShoppingCartIcon />}
-              onClick={() => this.setState({ purchaseFormOpen: true })}
-            >
-              Buy Now
-            </Button>
-          </div>
-          <div>
-            <img src="assets/images/3.jpg" alt="img not available" />
-            <Button
-              className="legend"
-              variant="contained"
-              color="secondary"
-              startIcon={<ShoppingCartIcon />}
-              onClick={() => this.setState({ purchaseFormOpen: true })}
-            >
-              Buy Now
-            </Button>
-          </div>
-        </Carousel>
-        <PurchaseForm
-          open={this.state.purchaseFormOpen}
-          handleClose={() => this.setState({ purchaseFormOpen: false })}
-          handlePurchase={() => {
-            this.setState({ purchaseFormOpen: false });
-            console.log("purchased");
-          }}
-        />
+          <Carousel
+            showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+            autoPlay={false}
+            infiniteLoop={true}
+          >
+            <div>
+              <img
+                src="assets/images/1.jpg"
+                alt="img not available"
+                onLoad={() => this.setState({ isImageLoaded: true })}
+              />
+              <Button
+                className="legend"
+                variant="contained"
+                color="secondary"
+                startIcon={<ShoppingCartIcon />}
+                onClick={() => this.setState({ purchaseFormOpen: true })}
+              >
+                Buy Now
+              </Button>
+            </div>
+            <div>
+              <img src="assets/images/2.jpg" alt="img not available" />
+              <Button
+                className="legend"
+                variant="contained"
+                color="secondary"
+                startIcon={<ShoppingCartIcon />}
+                onClick={() => this.setState({ purchaseFormOpen: true })}
+              >
+                Buy Now
+              </Button>
+            </div>
+            <div>
+              <img src="assets/images/3.jpg" alt="img not available" />
+              <Button
+                className="legend"
+                variant="contained"
+                color="secondary"
+                startIcon={<ShoppingCartIcon />}
+                onClick={() => this.setState({ purchaseFormOpen: true })}
+              >
+                Buy Now
+              </Button>
+            </div>
+          </Carousel>
+          <PurchaseForm
+            open={this.state.purchaseFormOpen}
+            handleClose={() => this.setState({ purchaseFormOpen: false })}
+            handlePurchase={() => {
+              this.setState({ purchaseFormOpen: false });
+              console.log("purchased");
+            }}
+          />
+        </Paper>
       </>
     );
   }
